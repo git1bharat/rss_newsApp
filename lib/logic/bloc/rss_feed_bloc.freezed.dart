@@ -316,6 +316,7 @@ mixin _$RssFeedState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
+    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
     required TResult Function(String error) errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -324,6 +325,7 @@ mixin _$RssFeedState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult? Function(String error)? errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -332,6 +334,7 @@ mixin _$RssFeedState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) =>
@@ -341,6 +344,7 @@ mixin _$RssFeedState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
     required TResult Function(_ErrorState value) errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -349,6 +353,7 @@ mixin _$RssFeedState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult? Function(_ErrorState value)? errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -357,6 +362,7 @@ mixin _$RssFeedState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) =>
@@ -422,6 +428,7 @@ class _$InitialStateImpl implements _InitialState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
+    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
     required TResult Function(String error) errorState,
   }) {
     return initialState();
@@ -433,6 +440,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult? Function(String error)? errorState,
   }) {
     return initialState?.call();
@@ -444,6 +452,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -459,6 +468,7 @@ class _$InitialStateImpl implements _InitialState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return initialState(this);
@@ -470,6 +480,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return initialState?.call(this);
@@ -481,6 +492,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
@@ -536,6 +548,7 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
+    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
     required TResult Function(String error) errorState,
   }) {
     return loadingState();
@@ -547,6 +560,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult? Function(String error)? errorState,
   }) {
     return loadingState?.call();
@@ -558,6 +572,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -573,6 +588,7 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return loadingState(this);
@@ -584,6 +600,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadingState?.call(this);
@@ -595,6 +612,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
@@ -684,6 +702,7 @@ class _$LoadedStateImpl implements _LoadedState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
+    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
     required TResult Function(String error) errorState,
   }) {
     return loadedState(rssFeedItem);
@@ -695,6 +714,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult? Function(String error)? errorState,
   }) {
     return loadedState?.call(rssFeedItem);
@@ -706,6 +726,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -721,6 +742,7 @@ class _$LoadedStateImpl implements _LoadedState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return loadedState(this);
@@ -732,6 +754,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadedState?.call(this);
@@ -743,6 +766,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
@@ -760,6 +784,166 @@ abstract class _LoadedState implements RssFeedState {
   List<RssItem> get rssFeedItem;
   @JsonKey(ignore: true)
   _$$LoadedStateImplCopyWith<_$LoadedStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadSubscribeFeedImplCopyWith<$Res> {
+  factory _$$LoadSubscribeFeedImplCopyWith(_$LoadSubscribeFeedImpl value,
+          $Res Function(_$LoadSubscribeFeedImpl) then) =
+      __$$LoadSubscribeFeedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<RssItem> feedItem});
+}
+
+/// @nodoc
+class __$$LoadSubscribeFeedImplCopyWithImpl<$Res>
+    extends _$RssFeedStateCopyWithImpl<$Res, _$LoadSubscribeFeedImpl>
+    implements _$$LoadSubscribeFeedImplCopyWith<$Res> {
+  __$$LoadSubscribeFeedImplCopyWithImpl(_$LoadSubscribeFeedImpl _value,
+      $Res Function(_$LoadSubscribeFeedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? feedItem = null,
+  }) {
+    return _then(_$LoadSubscribeFeedImpl(
+      feedItem: null == feedItem
+          ? _value._feedItem
+          : feedItem // ignore: cast_nullable_to_non_nullable
+              as List<RssItem>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
+  const _$LoadSubscribeFeedImpl({required final List<RssItem> feedItem})
+      : _feedItem = feedItem;
+
+  final List<RssItem> _feedItem;
+  @override
+  List<RssItem> get feedItem {
+    if (_feedItem is EqualUnmodifiableListView) return _feedItem;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_feedItem);
+  }
+
+  @override
+  String toString() {
+    return 'RssFeedState.loadSubscribeFeed(feedItem: $feedItem)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadSubscribeFeedImpl &&
+            const DeepCollectionEquality().equals(other._feedItem, _feedItem));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_feedItem));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadSubscribeFeedImplCopyWith<_$LoadSubscribeFeedImpl> get copyWith =>
+      __$$LoadSubscribeFeedImplCopyWithImpl<_$LoadSubscribeFeedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialState,
+    required TResult Function() loadingState,
+    required TResult Function(List<RssItem> rssFeedItem) loadedState,
+    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(String error) errorState,
+  }) {
+    return loadSubscribeFeed(feedItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialState,
+    TResult? Function()? loadingState,
+    TResult? Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(String error)? errorState,
+  }) {
+    return loadSubscribeFeed?.call(feedItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialState,
+    TResult Function()? loadingState,
+    TResult Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(String error)? errorState,
+    required TResult orElse(),
+  }) {
+    if (loadSubscribeFeed != null) {
+      return loadSubscribeFeed(feedItem);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialState value) initialState,
+    required TResult Function(_LoadingState value) loadingState,
+    required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_ErrorState value) errorState,
+  }) {
+    return loadSubscribeFeed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitialState value)? initialState,
+    TResult? Function(_LoadingState value)? loadingState,
+    TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_ErrorState value)? errorState,
+  }) {
+    return loadSubscribeFeed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialState value)? initialState,
+    TResult Function(_LoadingState value)? loadingState,
+    TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_ErrorState value)? errorState,
+    required TResult orElse(),
+  }) {
+    if (loadSubscribeFeed != null) {
+      return loadSubscribeFeed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadSubscribeFeed implements RssFeedState {
+  const factory _LoadSubscribeFeed({required final List<RssItem> feedItem}) =
+      _$LoadSubscribeFeedImpl;
+
+  List<RssItem> get feedItem;
+  @JsonKey(ignore: true)
+  _$$LoadSubscribeFeedImplCopyWith<_$LoadSubscribeFeedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -830,6 +1014,7 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
+    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
     required TResult Function(String error) errorState,
   }) {
     return errorState(error);
@@ -841,6 +1026,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult? Function(String error)? errorState,
   }) {
     return errorState?.call(error);
@@ -852,6 +1038,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
+    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -867,6 +1054,7 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
+    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return errorState(this);
@@ -878,6 +1066,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
+    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return errorState?.call(this);
@@ -889,6 +1078,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
+    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {

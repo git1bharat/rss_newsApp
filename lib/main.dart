@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rss_newsapp/logic/bloc/bloc_observer.dart';
 import 'package:rss_newsapp/logic/bloc/rss_feed_bloc.dart';
-import 'package:rss_newsapp/screen/home_screen.dart';
-import 'package:rss_newsapp/screen/news_feed_screen.dart';
 import 'package:rss_newsapp/screen/news_screen.dart';
 
 void main() {

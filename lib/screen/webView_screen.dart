@@ -14,11 +14,16 @@ class _WebViewScreenState extends State<WebViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          InAppWebView(
-              initialUrlRequest: URLRequest(url: WebUri(widget.newsUrl))),
-        ],
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
+      body: Container(
+        child: Stack(
+          children: [
+            InAppWebView(
+                initialUrlRequest: URLRequest(url: WebUri(widget.newsUrl))),
+          ],
+        ),
       ),
     );
   }
