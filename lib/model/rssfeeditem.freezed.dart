@@ -20,10 +20,9 @@ NewsModel _$NewsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NewsModel {
-  String get title => throw _privateConstructorUsedError;
-  String? get link => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $NewsModelCopyWith<$Res> {
   factory $NewsModelCopyWith(NewsModel value, $Res Function(NewsModel) then) =
       _$NewsModelCopyWithImpl<$Res, NewsModel>;
   @useResult
-  $Res call({String title, String? link, String? url, String? description});
+  $Res call({int? id, String? url, String? name});
 }
 
 /// @nodoc
@@ -52,27 +51,22 @@ class _$NewsModelCopyWithImpl<$Res, $Val extends NewsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? link = freezed,
+    Object? id = freezed,
     Object? url = freezed,
-    Object? description = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: freezed == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -86,7 +80,7 @@ abstract class _$$NewsModelImplCopyWith<$Res>
       __$$NewsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String? link, String? url, String? description});
+  $Res call({int? id, String? url, String? name});
 }
 
 /// @nodoc
@@ -100,27 +94,22 @@ class __$$NewsModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? link = freezed,
+    Object? id = freezed,
     Object? url = freezed,
-    Object? description = freezed,
+    Object? name = freezed,
   }) {
     return _then(_$NewsModelImpl(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      link: freezed == link
-          ? _value.link
-          : link // ignore: cast_nullable_to_non_nullable
-              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -129,23 +118,21 @@ class __$$NewsModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$NewsModelImpl implements _NewsModel {
-  _$NewsModelImpl({required this.title, this.link, this.url, this.description});
+  _$NewsModelImpl({this.id, required this.url, required this.name});
 
   factory _$NewsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$NewsModelImplFromJson(json);
 
   @override
-  final String title;
-  @override
-  final String? link;
+  final int? id;
   @override
   final String? url;
   @override
-  final String? description;
+  final String? name;
 
   @override
   String toString() {
-    return 'NewsModel(title: $title, link: $link, url: $url, description: $description)';
+    return 'NewsModel(id: $id, url: $url, name: $name)';
   }
 
   @override
@@ -153,16 +140,14 @@ class _$NewsModelImpl implements _NewsModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NewsModelImpl &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.link, link) || other.link == link) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, link, url, description);
+  int get hashCode => Object.hash(runtimeType, id, url, name);
 
   @JsonKey(ignore: true)
   @override
@@ -180,22 +165,19 @@ class _$NewsModelImpl implements _NewsModel {
 
 abstract class _NewsModel implements NewsModel {
   factory _NewsModel(
-      {required final String title,
-      final String? link,
-      final String? url,
-      final String? description}) = _$NewsModelImpl;
+      {final int? id,
+      required final String? url,
+      required final String? name}) = _$NewsModelImpl;
 
   factory _NewsModel.fromJson(Map<String, dynamic> json) =
       _$NewsModelImpl.fromJson;
 
   @override
-  String get title;
-  @override
-  String? get link;
+  int? get id;
   @override
   String? get url;
   @override
-  String? get description;
+  String? get name;
   @override
   @JsonKey(ignore: true)
   _$$NewsModelImplCopyWith<_$NewsModelImpl> get copyWith =>

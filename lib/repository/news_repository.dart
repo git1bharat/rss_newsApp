@@ -1,16 +1,10 @@
-import 'dart:convert';
-
 import 'package:dart_rss/dart_rss.dart';
-import 'package:flutter/material.dart';
-import 'package:rss_newsapp/model/rssfeeditem.dart';
 import 'package:rss_newsapp/network/dio_factory.dart';
 
 class NewsRepository {
   DioFactory diofactory = DioFactory();
-  var url = 'https://feeds.feedburner.com/ndtvnews-top-stories';
-  // var SubscribeUrl = 'https://feeds.feedburner.com/ndtvnews-top-stories';
-
-  Future<List<RssItem>> fetchRssFeed() async {
+  var url = 'https://www.livemint.com/rss/opinion';
+  Future<List<RssItem>> fetchRssFeed(String url) async {
     var response = await diofactory.dio.get(url);
     var bodyString = response.data;
     var channel = RssFeed.parse(bodyString);
@@ -20,16 +14,16 @@ class NewsRepository {
     return feedList;
   }
 
-  Future<List<RssItem>> subscribeNewsFeed(String url) async {
-    var feedList = await diofactory.dio.get(url).then((response) {
-      return response.data;
-    }).then((bodyString) {
-      var channel = RssFeed.parse(bodyString);
-      print('channel title: ${channel.title}');
-      return channel.items; // Return a list of items, not just the channel
-    });
-    return feedList;
-  }
+  // Future<List<RssItem>> subscribeNewsFeed(String url) async {
+  //   var feedList = await diofactory.dio.get(url).then((response) {
+  //     return response.data;
+  //   }).then((bodyString) {
+  //     var channel = RssFeed.parse(bodyString);
+  //     print('channel title: ${channel.title}');
+  //     return channel.items; // Return a list of items, not just the channel
+  //   });
+  //   return feedList;
+  // }
 }
 
 
