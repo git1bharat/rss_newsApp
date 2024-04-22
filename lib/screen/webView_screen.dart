@@ -7,10 +7,11 @@ class WebViewScreen extends StatefulWidget {
 
   @override
   State<WebViewScreen> createState() => _WebViewScreenState();
-  late InAppWebViewController _inAppWebViewController;
 }
 
 class _WebViewScreenState extends State<WebViewScreen> {
+  late InAppWebViewController inAppWebViewController;
+  double _progress = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,26 @@ class _WebViewScreenState extends State<WebViewScreen> {
         child: Stack(
           children: [
             InAppWebView(
-                initialUrlRequest: URLRequest(url: WebUri(widget.newsUrl))),
+              initialUrlRequest: URLRequest(
+                url: WebUri(widget.newsUrl),
+              ),
+              onWebViewCreated: (InAppWebViewController controller) {
+                inAppWebViewController = controller;
+              },
+              onProgressChanged:
+                  (InAppWebViewController controller, int progress) {
+                setState(() {
+                  _progress = progress / 100;
+                });
+              },
+            ),
+            _progress < 1
+                ? Container(
+                    child: LinearProgressIndicator(
+                      value: _progress,
+                    ),
+                  )
+                : SizedBox()
           ],
         ),
       ),
