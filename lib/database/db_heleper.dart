@@ -71,7 +71,7 @@ class DataBaseHelper {
               'url': map[channelUrl] as String,
             })
         .toList();
-    print('Yur data base data here........$channelList');
+
     return channelList;
   }
 
