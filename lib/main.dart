@@ -1,8 +1,9 @@
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rss_newsapp/logic/bloc/bloc_observer.dart';
 import 'package:rss_newsapp/logic/bloc/rss_feed_bloc.dart';
-import 'package:rss_newsapp/screen/onboarding_screen.dart';
+import 'package:rss_newsapp/screen/feed_screen.dart';
 
 void main() {
   BlocOverrides.runZoned(
@@ -25,13 +26,35 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData(brightness: Brightness.dark),
+          themeMode: ThemeMode.dark,
+          home: SafeArea(
+            child: FlutterSplashScreen.fadeIn(
+              duration: const Duration(milliseconds: 4000),
+              backgroundColor: Colors.white,
+              onInit: () {
+                debugPrint("On Init");
+              },
+              onEnd: () {
+                debugPrint("On End");
+              },
+              childWidget: Container(
+                width: 390,
+                height: 755,
+                child: Image.asset(
+                  "assets/images/feedFuse.jpg",
+                  fit: BoxFit.fill,
+                ),
+              ),
+              onAnimationEnd: () => debugPrint("On Fade In End"),
+              nextScreen: FeedScreen(),
             ),
-            darkTheme: ThemeData(brightness: Brightness.dark),
-            themeMode: ThemeMode.dark,
-            home: OnBoradingScreen()));
+          ),
+        ));
   }
 }
