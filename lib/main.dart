@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.dark,
           home: SafeArea(
             child: FlutterSplashScreen.fadeIn(
-              duration: const Duration(milliseconds: 4000),
+              duration: const Duration(milliseconds: 3500),
               backgroundColor: Colors.white,
               onInit: () {
                 debugPrint("On Init");
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
               },
               childWidget: Container(
                 width: 390,
-                height: 755,
+                height: 756,
                 child: Image.asset(
                   "assets/images/feedFuse.jpg",
                   fit: BoxFit.fill,
