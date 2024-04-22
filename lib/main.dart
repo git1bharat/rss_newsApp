@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rss_newsapp/logic/bloc/bloc_observer.dart';
 import 'package:rss_newsapp/logic/bloc/rss_feed_bloc.dart';
-import 'package:rss_newsapp/screen/news_screen.dart';
+import 'package:rss_newsapp/screen/onboarding_screen.dart';
 
 void main() {
   BlocOverrides.runZoned(
@@ -25,14 +25,13 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          // darkTheme: ThemeData(brightness: Brightness.dark),
-          // themeMode: ThemeMode.dark,
-          home: FeedScreen(title: "News"),
-        ));
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            darkTheme: ThemeData(brightness: Brightness.dark),
+            themeMode: ThemeMode.dark,
+            home: OnBoradingScreen()));
   }
 }

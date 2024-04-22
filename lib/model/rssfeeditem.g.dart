@@ -8,16 +8,14 @@ part of 'rssfeeditem.dart';
 
 _$NewsModelImpl _$$NewsModelImplFromJson(Map<String, dynamic> json) =>
     _$NewsModelImpl(
-      title: json['title'] as String,
-      link: json['link'] as String?,
+      id: json['id'] as int?,
       url: json['url'] as String?,
-      description: json['description'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$$NewsModelImplToJson(_$NewsModelImpl instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'link': instance.link,
+      'id': instance.id,
       'url': instance.url,
-      'description': instance.description,
+      'name': instance.name,
     };

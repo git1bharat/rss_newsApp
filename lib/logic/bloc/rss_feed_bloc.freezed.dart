@@ -18,39 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RssFeedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFeed,
-    required TResult Function(String url) submitUrl,
+    required TResult Function(String? url) fetchFeed,
+    required TResult Function() fetchDb,
+    required TResult Function(String name, String url) insertNameUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFeed,
-    TResult? Function(String url)? submitUrl,
+    TResult? Function(String? url)? fetchFeed,
+    TResult? Function()? fetchDb,
+    TResult? Function(String name, String url)? insertNameUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFeed,
-    TResult Function(String url)? submitUrl,
+    TResult Function(String? url)? fetchFeed,
+    TResult Function()? fetchDb,
+    TResult Function(String name, String url)? insertNameUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchFeed value) fetchFeed,
-    required TResult Function(_SubmitUrl value) submitUrl,
+    required TResult Function(_FetchDb value) fetchDb,
+    required TResult Function(_InsertNameUrl value) insertNameUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchFeed value)? fetchFeed,
-    TResult? Function(_SubmitUrl value)? submitUrl,
+    TResult? Function(_FetchDb value)? fetchDb,
+    TResult? Function(_InsertNameUrl value)? insertNameUrl,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchFeed value)? fetchFeed,
-    TResult Function(_SubmitUrl value)? submitUrl,
+    TResult Function(_FetchDb value)? fetchDb,
+    TResult Function(_InsertNameUrl value)? insertNameUrl,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +85,8 @@ abstract class _$$FetchFeedImplCopyWith<$Res> {
   factory _$$FetchFeedImplCopyWith(
           _$FetchFeedImpl value, $Res Function(_$FetchFeedImpl) then) =
       __$$FetchFeedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? url});
 }
 
 /// @nodoc
@@ -88,54 +96,81 @@ class __$$FetchFeedImplCopyWithImpl<$Res>
   __$$FetchFeedImplCopyWithImpl(
       _$FetchFeedImpl _value, $Res Function(_$FetchFeedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? url = freezed,
+  }) {
+    return _then(_$FetchFeedImpl(
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FetchFeedImpl implements _FetchFeed {
-  const _$FetchFeedImpl();
+  const _$FetchFeedImpl({required this.url});
+
+  @override
+  final String? url;
 
   @override
   String toString() {
-    return 'RssFeedEvent.fetchFeed()';
+    return 'RssFeedEvent.fetchFeed(url: $url)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchFeedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchFeedImpl &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, url);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchFeedImplCopyWith<_$FetchFeedImpl> get copyWith =>
+      __$$FetchFeedImplCopyWithImpl<_$FetchFeedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFeed,
-    required TResult Function(String url) submitUrl,
+    required TResult Function(String? url) fetchFeed,
+    required TResult Function() fetchDb,
+    required TResult Function(String name, String url) insertNameUrl,
   }) {
-    return fetchFeed();
+    return fetchFeed(url);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFeed,
-    TResult? Function(String url)? submitUrl,
+    TResult? Function(String? url)? fetchFeed,
+    TResult? Function()? fetchDb,
+    TResult? Function(String name, String url)? insertNameUrl,
   }) {
-    return fetchFeed?.call();
+    return fetchFeed?.call(url);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFeed,
-    TResult Function(String url)? submitUrl,
+    TResult Function(String? url)? fetchFeed,
+    TResult Function()? fetchDb,
+    TResult Function(String name, String url)? insertNameUrl,
     required TResult orElse(),
   }) {
     if (fetchFeed != null) {
-      return fetchFeed();
+      return fetchFeed(url);
     }
     return orElse();
   }
@@ -144,7 +179,8 @@ class _$FetchFeedImpl implements _FetchFeed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchFeed value) fetchFeed,
-    required TResult Function(_SubmitUrl value) submitUrl,
+    required TResult Function(_FetchDb value) fetchDb,
+    required TResult Function(_InsertNameUrl value) insertNameUrl,
   }) {
     return fetchFeed(this);
   }
@@ -153,7 +189,8 @@ class _$FetchFeedImpl implements _FetchFeed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchFeed value)? fetchFeed,
-    TResult? Function(_SubmitUrl value)? submitUrl,
+    TResult? Function(_FetchDb value)? fetchDb,
+    TResult? Function(_InsertNameUrl value)? insertNameUrl,
   }) {
     return fetchFeed?.call(this);
   }
@@ -162,7 +199,8 @@ class _$FetchFeedImpl implements _FetchFeed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchFeed value)? fetchFeed,
-    TResult Function(_SubmitUrl value)? submitUrl,
+    TResult Function(_FetchDb value)? fetchDb,
+    TResult Function(_InsertNameUrl value)? insertNameUrl,
     required TResult orElse(),
   }) {
     if (fetchFeed != null) {
@@ -173,33 +211,151 @@ class _$FetchFeedImpl implements _FetchFeed {
 }
 
 abstract class _FetchFeed implements RssFeedEvent {
-  const factory _FetchFeed() = _$FetchFeedImpl;
+  const factory _FetchFeed({required final String? url}) = _$FetchFeedImpl;
+
+  String? get url;
+  @JsonKey(ignore: true)
+  _$$FetchFeedImplCopyWith<_$FetchFeedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SubmitUrlImplCopyWith<$Res> {
-  factory _$$SubmitUrlImplCopyWith(
-          _$SubmitUrlImpl value, $Res Function(_$SubmitUrlImpl) then) =
-      __$$SubmitUrlImplCopyWithImpl<$Res>;
+abstract class _$$FetchDbImplCopyWith<$Res> {
+  factory _$$FetchDbImplCopyWith(
+          _$FetchDbImpl value, $Res Function(_$FetchDbImpl) then) =
+      __$$FetchDbImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchDbImplCopyWithImpl<$Res>
+    extends _$RssFeedEventCopyWithImpl<$Res, _$FetchDbImpl>
+    implements _$$FetchDbImplCopyWith<$Res> {
+  __$$FetchDbImplCopyWithImpl(
+      _$FetchDbImpl _value, $Res Function(_$FetchDbImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchDbImpl implements _FetchDb {
+  const _$FetchDbImpl();
+
+  @override
+  String toString() {
+    return 'RssFeedEvent.fetchDb()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchDbImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? url) fetchFeed,
+    required TResult Function() fetchDb,
+    required TResult Function(String name, String url) insertNameUrl,
+  }) {
+    return fetchDb();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? url)? fetchFeed,
+    TResult? Function()? fetchDb,
+    TResult? Function(String name, String url)? insertNameUrl,
+  }) {
+    return fetchDb?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? url)? fetchFeed,
+    TResult Function()? fetchDb,
+    TResult Function(String name, String url)? insertNameUrl,
+    required TResult orElse(),
+  }) {
+    if (fetchDb != null) {
+      return fetchDb();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchFeed value) fetchFeed,
+    required TResult Function(_FetchDb value) fetchDb,
+    required TResult Function(_InsertNameUrl value) insertNameUrl,
+  }) {
+    return fetchDb(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchFeed value)? fetchFeed,
+    TResult? Function(_FetchDb value)? fetchDb,
+    TResult? Function(_InsertNameUrl value)? insertNameUrl,
+  }) {
+    return fetchDb?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchFeed value)? fetchFeed,
+    TResult Function(_FetchDb value)? fetchDb,
+    TResult Function(_InsertNameUrl value)? insertNameUrl,
+    required TResult orElse(),
+  }) {
+    if (fetchDb != null) {
+      return fetchDb(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchDb implements RssFeedEvent {
+  const factory _FetchDb() = _$FetchDbImpl;
+}
+
+/// @nodoc
+abstract class _$$InsertNameUrlImplCopyWith<$Res> {
+  factory _$$InsertNameUrlImplCopyWith(
+          _$InsertNameUrlImpl value, $Res Function(_$InsertNameUrlImpl) then) =
+      __$$InsertNameUrlImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String url});
+  $Res call({String name, String url});
 }
 
 /// @nodoc
-class __$$SubmitUrlImplCopyWithImpl<$Res>
-    extends _$RssFeedEventCopyWithImpl<$Res, _$SubmitUrlImpl>
-    implements _$$SubmitUrlImplCopyWith<$Res> {
-  __$$SubmitUrlImplCopyWithImpl(
-      _$SubmitUrlImpl _value, $Res Function(_$SubmitUrlImpl) _then)
+class __$$InsertNameUrlImplCopyWithImpl<$Res>
+    extends _$RssFeedEventCopyWithImpl<$Res, _$InsertNameUrlImpl>
+    implements _$$InsertNameUrlImplCopyWith<$Res> {
+  __$$InsertNameUrlImplCopyWithImpl(
+      _$InsertNameUrlImpl _value, $Res Function(_$InsertNameUrlImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
     Object? url = null,
   }) {
-    return _then(_$SubmitUrlImpl(
-      url: null == url
+    return _then(_$InsertNameUrlImpl(
+      null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
@@ -209,61 +365,67 @@ class __$$SubmitUrlImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SubmitUrlImpl implements _SubmitUrl {
-  const _$SubmitUrlImpl({required this.url});
+class _$InsertNameUrlImpl implements _InsertNameUrl {
+  const _$InsertNameUrlImpl(this.name, this.url);
 
+  @override
+  final String name;
   @override
   final String url;
 
   @override
   String toString() {
-    return 'RssFeedEvent.submitUrl(url: $url)';
+    return 'RssFeedEvent.insertNameUrl(name: $name, url: $url)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubmitUrlImpl &&
+            other is _$InsertNameUrlImpl &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, url);
+  int get hashCode => Object.hash(runtimeType, name, url);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SubmitUrlImplCopyWith<_$SubmitUrlImpl> get copyWith =>
-      __$$SubmitUrlImplCopyWithImpl<_$SubmitUrlImpl>(this, _$identity);
+  _$$InsertNameUrlImplCopyWith<_$InsertNameUrlImpl> get copyWith =>
+      __$$InsertNameUrlImplCopyWithImpl<_$InsertNameUrlImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFeed,
-    required TResult Function(String url) submitUrl,
+    required TResult Function(String? url) fetchFeed,
+    required TResult Function() fetchDb,
+    required TResult Function(String name, String url) insertNameUrl,
   }) {
-    return submitUrl(url);
+    return insertNameUrl(name, url);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFeed,
-    TResult? Function(String url)? submitUrl,
+    TResult? Function(String? url)? fetchFeed,
+    TResult? Function()? fetchDb,
+    TResult? Function(String name, String url)? insertNameUrl,
   }) {
-    return submitUrl?.call(url);
+    return insertNameUrl?.call(name, url);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFeed,
-    TResult Function(String url)? submitUrl,
+    TResult Function(String? url)? fetchFeed,
+    TResult Function()? fetchDb,
+    TResult Function(String name, String url)? insertNameUrl,
     required TResult orElse(),
   }) {
-    if (submitUrl != null) {
-      return submitUrl(url);
+    if (insertNameUrl != null) {
+      return insertNameUrl(name, url);
     }
     return orElse();
   }
@@ -272,40 +434,45 @@ class _$SubmitUrlImpl implements _SubmitUrl {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchFeed value) fetchFeed,
-    required TResult Function(_SubmitUrl value) submitUrl,
+    required TResult Function(_FetchDb value) fetchDb,
+    required TResult Function(_InsertNameUrl value) insertNameUrl,
   }) {
-    return submitUrl(this);
+    return insertNameUrl(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchFeed value)? fetchFeed,
-    TResult? Function(_SubmitUrl value)? submitUrl,
+    TResult? Function(_FetchDb value)? fetchDb,
+    TResult? Function(_InsertNameUrl value)? insertNameUrl,
   }) {
-    return submitUrl?.call(this);
+    return insertNameUrl?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchFeed value)? fetchFeed,
-    TResult Function(_SubmitUrl value)? submitUrl,
+    TResult Function(_FetchDb value)? fetchDb,
+    TResult Function(_InsertNameUrl value)? insertNameUrl,
     required TResult orElse(),
   }) {
-    if (submitUrl != null) {
-      return submitUrl(this);
+    if (insertNameUrl != null) {
+      return insertNameUrl(this);
     }
     return orElse();
   }
 }
 
-abstract class _SubmitUrl implements RssFeedEvent {
-  const factory _SubmitUrl({required final String url}) = _$SubmitUrlImpl;
+abstract class _InsertNameUrl implements RssFeedEvent {
+  const factory _InsertNameUrl(final String name, final String url) =
+      _$InsertNameUrlImpl;
 
+  String get name;
   String get url;
   @JsonKey(ignore: true)
-  _$$SubmitUrlImplCopyWith<_$SubmitUrlImpl> get copyWith =>
+  _$$InsertNameUrlImplCopyWith<_$InsertNameUrlImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -316,7 +483,7 @@ mixin _$RssFeedState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
-    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(List<NewsModel> newodel) fetchDatabase,
     required TResult Function(String error) errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -325,7 +492,7 @@ mixin _$RssFeedState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(List<NewsModel> newodel)? fetchDatabase,
     TResult? Function(String error)? errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -334,7 +501,7 @@ mixin _$RssFeedState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(List<NewsModel> newodel)? fetchDatabase,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) =>
@@ -344,7 +511,7 @@ mixin _$RssFeedState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
-    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_FetchDatabase value) fetchDatabase,
     required TResult Function(_ErrorState value) errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -353,7 +520,7 @@ mixin _$RssFeedState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
-    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_FetchDatabase value)? fetchDatabase,
     TResult? Function(_ErrorState value)? errorState,
   }) =>
       throw _privateConstructorUsedError;
@@ -362,7 +529,7 @@ mixin _$RssFeedState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_FetchDatabase value)? fetchDatabase,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) =>
@@ -428,7 +595,7 @@ class _$InitialStateImpl implements _InitialState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
-    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(List<NewsModel> newodel) fetchDatabase,
     required TResult Function(String error) errorState,
   }) {
     return initialState();
@@ -440,7 +607,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(List<NewsModel> newodel)? fetchDatabase,
     TResult? Function(String error)? errorState,
   }) {
     return initialState?.call();
@@ -452,7 +619,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(List<NewsModel> newodel)? fetchDatabase,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -468,7 +635,7 @@ class _$InitialStateImpl implements _InitialState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
-    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_FetchDatabase value) fetchDatabase,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return initialState(this);
@@ -480,7 +647,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
-    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_FetchDatabase value)? fetchDatabase,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return initialState?.call(this);
@@ -492,7 +659,7 @@ class _$InitialStateImpl implements _InitialState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_FetchDatabase value)? fetchDatabase,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
@@ -548,7 +715,7 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
-    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(List<NewsModel> newodel) fetchDatabase,
     required TResult Function(String error) errorState,
   }) {
     return loadingState();
@@ -560,7 +727,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(List<NewsModel> newodel)? fetchDatabase,
     TResult? Function(String error)? errorState,
   }) {
     return loadingState?.call();
@@ -572,7 +739,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(List<NewsModel> newodel)? fetchDatabase,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -588,7 +755,7 @@ class _$LoadingStateImpl implements _LoadingState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
-    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_FetchDatabase value) fetchDatabase,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return loadingState(this);
@@ -600,7 +767,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
-    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_FetchDatabase value)? fetchDatabase,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadingState?.call(this);
@@ -612,7 +779,7 @@ class _$LoadingStateImpl implements _LoadingState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_FetchDatabase value)? fetchDatabase,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
@@ -702,7 +869,7 @@ class _$LoadedStateImpl implements _LoadedState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
-    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(List<NewsModel> newodel) fetchDatabase,
     required TResult Function(String error) errorState,
   }) {
     return loadedState(rssFeedItem);
@@ -714,7 +881,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(List<NewsModel> newodel)? fetchDatabase,
     TResult? Function(String error)? errorState,
   }) {
     return loadedState?.call(rssFeedItem);
@@ -726,7 +893,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(List<NewsModel> newodel)? fetchDatabase,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -742,7 +909,7 @@ class _$LoadedStateImpl implements _LoadedState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
-    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_FetchDatabase value) fetchDatabase,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return loadedState(this);
@@ -754,7 +921,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
-    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_FetchDatabase value)? fetchDatabase,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return loadedState?.call(this);
@@ -766,7 +933,7 @@ class _$LoadedStateImpl implements _LoadedState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_FetchDatabase value)? fetchDatabase,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
@@ -788,73 +955,72 @@ abstract class _LoadedState implements RssFeedState {
 }
 
 /// @nodoc
-abstract class _$$LoadSubscribeFeedImplCopyWith<$Res> {
-  factory _$$LoadSubscribeFeedImplCopyWith(_$LoadSubscribeFeedImpl value,
-          $Res Function(_$LoadSubscribeFeedImpl) then) =
-      __$$LoadSubscribeFeedImplCopyWithImpl<$Res>;
+abstract class _$$FetchDatabaseImplCopyWith<$Res> {
+  factory _$$FetchDatabaseImplCopyWith(
+          _$FetchDatabaseImpl value, $Res Function(_$FetchDatabaseImpl) then) =
+      __$$FetchDatabaseImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<RssItem> feedItem});
+  $Res call({List<NewsModel> newodel});
 }
 
 /// @nodoc
-class __$$LoadSubscribeFeedImplCopyWithImpl<$Res>
-    extends _$RssFeedStateCopyWithImpl<$Res, _$LoadSubscribeFeedImpl>
-    implements _$$LoadSubscribeFeedImplCopyWith<$Res> {
-  __$$LoadSubscribeFeedImplCopyWithImpl(_$LoadSubscribeFeedImpl _value,
-      $Res Function(_$LoadSubscribeFeedImpl) _then)
+class __$$FetchDatabaseImplCopyWithImpl<$Res>
+    extends _$RssFeedStateCopyWithImpl<$Res, _$FetchDatabaseImpl>
+    implements _$$FetchDatabaseImplCopyWith<$Res> {
+  __$$FetchDatabaseImplCopyWithImpl(
+      _$FetchDatabaseImpl _value, $Res Function(_$FetchDatabaseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? feedItem = null,
+    Object? newodel = null,
   }) {
-    return _then(_$LoadSubscribeFeedImpl(
-      feedItem: null == feedItem
-          ? _value._feedItem
-          : feedItem // ignore: cast_nullable_to_non_nullable
-              as List<RssItem>,
+    return _then(_$FetchDatabaseImpl(
+      newodel: null == newodel
+          ? _value._newodel
+          : newodel // ignore: cast_nullable_to_non_nullable
+              as List<NewsModel>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
-  const _$LoadSubscribeFeedImpl({required final List<RssItem> feedItem})
-      : _feedItem = feedItem;
+class _$FetchDatabaseImpl implements _FetchDatabase {
+  const _$FetchDatabaseImpl({required final List<NewsModel> newodel})
+      : _newodel = newodel;
 
-  final List<RssItem> _feedItem;
+  final List<NewsModel> _newodel;
   @override
-  List<RssItem> get feedItem {
-    if (_feedItem is EqualUnmodifiableListView) return _feedItem;
+  List<NewsModel> get newodel {
+    if (_newodel is EqualUnmodifiableListView) return _newodel;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_feedItem);
+    return EqualUnmodifiableListView(_newodel);
   }
 
   @override
   String toString() {
-    return 'RssFeedState.loadSubscribeFeed(feedItem: $feedItem)';
+    return 'RssFeedState.fetchDatabase(newodel: $newodel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadSubscribeFeedImpl &&
-            const DeepCollectionEquality().equals(other._feedItem, _feedItem));
+            other is _$FetchDatabaseImpl &&
+            const DeepCollectionEquality().equals(other._newodel, _newodel));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_feedItem));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_newodel));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadSubscribeFeedImplCopyWith<_$LoadSubscribeFeedImpl> get copyWith =>
-      __$$LoadSubscribeFeedImplCopyWithImpl<_$LoadSubscribeFeedImpl>(
-          this, _$identity);
+  _$$FetchDatabaseImplCopyWith<_$FetchDatabaseImpl> get copyWith =>
+      __$$FetchDatabaseImplCopyWithImpl<_$FetchDatabaseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -862,10 +1028,10 @@ class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
-    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(List<NewsModel> newodel) fetchDatabase,
     required TResult Function(String error) errorState,
   }) {
-    return loadSubscribeFeed(feedItem);
+    return fetchDatabase(newodel);
   }
 
   @override
@@ -874,10 +1040,10 @@ class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(List<NewsModel> newodel)? fetchDatabase,
     TResult? Function(String error)? errorState,
   }) {
-    return loadSubscribeFeed?.call(feedItem);
+    return fetchDatabase?.call(newodel);
   }
 
   @override
@@ -886,12 +1052,12 @@ class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(List<NewsModel> newodel)? fetchDatabase,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
-    if (loadSubscribeFeed != null) {
-      return loadSubscribeFeed(feedItem);
+    if (fetchDatabase != null) {
+      return fetchDatabase(newodel);
     }
     return orElse();
   }
@@ -902,10 +1068,10 @@ class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
-    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_FetchDatabase value) fetchDatabase,
     required TResult Function(_ErrorState value) errorState,
   }) {
-    return loadSubscribeFeed(this);
+    return fetchDatabase(this);
   }
 
   @override
@@ -914,10 +1080,10 @@ class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
-    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_FetchDatabase value)? fetchDatabase,
     TResult? Function(_ErrorState value)? errorState,
   }) {
-    return loadSubscribeFeed?.call(this);
+    return fetchDatabase?.call(this);
   }
 
   @override
@@ -926,24 +1092,24 @@ class _$LoadSubscribeFeedImpl implements _LoadSubscribeFeed {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_FetchDatabase value)? fetchDatabase,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
-    if (loadSubscribeFeed != null) {
-      return loadSubscribeFeed(this);
+    if (fetchDatabase != null) {
+      return fetchDatabase(this);
     }
     return orElse();
   }
 }
 
-abstract class _LoadSubscribeFeed implements RssFeedState {
-  const factory _LoadSubscribeFeed({required final List<RssItem> feedItem}) =
-      _$LoadSubscribeFeedImpl;
+abstract class _FetchDatabase implements RssFeedState {
+  const factory _FetchDatabase({required final List<NewsModel> newodel}) =
+      _$FetchDatabaseImpl;
 
-  List<RssItem> get feedItem;
+  List<NewsModel> get newodel;
   @JsonKey(ignore: true)
-  _$$LoadSubscribeFeedImplCopyWith<_$LoadSubscribeFeedImpl> get copyWith =>
+  _$$FetchDatabaseImplCopyWith<_$FetchDatabaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1014,7 +1180,7 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function() initialState,
     required TResult Function() loadingState,
     required TResult Function(List<RssItem> rssFeedItem) loadedState,
-    required TResult Function(List<RssItem> feedItem) loadSubscribeFeed,
+    required TResult Function(List<NewsModel> newodel) fetchDatabase,
     required TResult Function(String error) errorState,
   }) {
     return errorState(error);
@@ -1026,7 +1192,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function()? initialState,
     TResult? Function()? loadingState,
     TResult? Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult? Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult? Function(List<NewsModel> newodel)? fetchDatabase,
     TResult? Function(String error)? errorState,
   }) {
     return errorState?.call(error);
@@ -1038,7 +1204,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function()? initialState,
     TResult Function()? loadingState,
     TResult Function(List<RssItem> rssFeedItem)? loadedState,
-    TResult Function(List<RssItem> feedItem)? loadSubscribeFeed,
+    TResult Function(List<NewsModel> newodel)? fetchDatabase,
     TResult Function(String error)? errorState,
     required TResult orElse(),
   }) {
@@ -1054,7 +1220,7 @@ class _$ErrorStateImpl implements _ErrorState {
     required TResult Function(_InitialState value) initialState,
     required TResult Function(_LoadingState value) loadingState,
     required TResult Function(_LoadedState value) loadedState,
-    required TResult Function(_LoadSubscribeFeed value) loadSubscribeFeed,
+    required TResult Function(_FetchDatabase value) fetchDatabase,
     required TResult Function(_ErrorState value) errorState,
   }) {
     return errorState(this);
@@ -1066,7 +1232,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult? Function(_InitialState value)? initialState,
     TResult? Function(_LoadingState value)? loadingState,
     TResult? Function(_LoadedState value)? loadedState,
-    TResult? Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult? Function(_FetchDatabase value)? fetchDatabase,
     TResult? Function(_ErrorState value)? errorState,
   }) {
     return errorState?.call(this);
@@ -1078,7 +1244,7 @@ class _$ErrorStateImpl implements _ErrorState {
     TResult Function(_InitialState value)? initialState,
     TResult Function(_LoadingState value)? loadingState,
     TResult Function(_LoadedState value)? loadedState,
-    TResult Function(_LoadSubscribeFeed value)? loadSubscribeFeed,
+    TResult Function(_FetchDatabase value)? fetchDatabase,
     TResult Function(_ErrorState value)? errorState,
     required TResult orElse(),
   }) {
