@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rss_newsapp/database/db_heleper.dart';
 import 'package:rss_newsapp/logic/bloc/rss_feed_bloc.dart';
 import 'package:rss_newsapp/widget/tabview_widget.dart';
 
-class FeedScreen extends StatefulWidget {
+class FeedScreen extends StatefulWidget with SU {
   FeedScreen({
     super.key,
   });
@@ -78,31 +79,34 @@ class _FeedScreenState extends State<FeedScreen>
 
   @override
   Widget build(BuildContext context) {
+    // Initialize ScreenUtil
+    ScreenUtil.init(context, designSize: Size(390, 844));
+
     return DefaultTabController(
         length: categories.length,
         child: Scaffold(
             appBar: AppBar(
-              title: Center(child: Text('News')),
+              title: const Center(child: Text('News')),
               backgroundColor: Colors.black,
               bottom: PreferredSize(
-                preferredSize: Size.fromHeight(kToolbarHeight),
+                preferredSize: const Size.fromHeight(kToolbarHeight),
                 child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  margin: EdgeInsets.symmetric(horizontal: 10.w),
                   child: TabBar(
-                      indicatorWeight: 5,
+                      indicatorWeight: 5.r,
                       indicatorSize: TabBarIndicatorSize.label,
                       indicatorColor: Colors.deepPurple,
                       labelColor: Colors.white70,
                       unselectedLabelColor: Colors.white30,
-                      labelPadding: const EdgeInsets.symmetric(
-                          vertical: 0, horizontal: 3),
+                      labelPadding:
+                          EdgeInsets.symmetric(vertical: 0, horizontal: 3.w),
                       isScrollable: true,
                       tabs:
                           List<Widget>.generate(categories.length, (int index) {
                         return Padding(
-                          padding: const EdgeInsets.only(
-                            left: 9.0,
-                            right: 9,
+                          padding: EdgeInsets.only(
+                            left: 9.w,
+                            right: 9.w,
                           ),
                           child: GestureDetector(
                               onLongPress: () {
@@ -142,8 +146,8 @@ class _FeedScreenState extends State<FeedScreen>
                         ),
                         loadedState: (feedList) {
                           return Container(
-                              width: 390,
-                              height: 500,
+                              width: 390.w,
+                              height: 500.h,
                               child: ListView.builder(
                                   controller: _scrollController,
                                   itemCount: feedList.length,
@@ -158,14 +162,14 @@ class _FeedScreenState extends State<FeedScreen>
                                   }));
                         },
                         errorState: (error) =>
-                            Center(child: const Text('Error..')),
+                            const Center(child: Text('Error..')),
                       );
                     });
                   }),
                 ),
                 Positioned(
-                  top: 580,
-                  left: 280,
+                  top: 580.h,
+                  left: 280.w,
                   child: FloatingActionButton(
                     onPressed: () {
                       _modalSheet(context);
@@ -216,14 +220,14 @@ class _FeedScreenState extends State<FeedScreen>
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: 50),
-              child: const Text(
+              margin: EdgeInsets.only(top: 50.h),
+              child: Text(
                 "Subscribe New feed",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20.sp),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(right: 30, left: 30, top: 10),
+              margin: EdgeInsets.only(right: 30.w, left: 30.w, top: 10.h),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -233,7 +237,7 @@ class _FeedScreenState extends State<FeedScreen>
                       decoration: InputDecoration(
                         hintText: 'Enter Channel Name..',
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
                       validator: (value) {
@@ -243,15 +247,15 @@ class _FeedScreenState extends State<FeedScreen>
                         return null;
                       },
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     TextFormField(
                       controller: _urlTextController,
                       decoration: InputDecoration(
                         hintText: 'Enter RssFeed url..',
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
                       validator: (value) {

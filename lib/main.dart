@@ -1,6 +1,7 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rss_newsapp/logic/bloc/bloc_observer.dart';
 import 'package:rss_newsapp/logic/bloc/rss_feed_bloc.dart';
 import 'package:rss_newsapp/screen/feed_screen.dart';
@@ -15,17 +16,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider<RssFeedBloc>(
-            create: (context) => RssFeedBloc(),
-          ),
-        ],
-        child: MaterialApp(
+      providers: [
+        BlocProvider<RssFeedBloc>(
+          create: (context) => RssFeedBloc(),
+        ),
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(390, 756),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) => MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -44,8 +47,8 @@ class MyApp extends StatelessWidget {
                 debugPrint("On End");
               },
               childWidget: Container(
-                width: 390,
-                height: 756,
+                width: 390.w, // Use ScreenUtil to make width responsive
+                height: 756.h, // Use ScreenUtil to make height responsive
                 child: Image.asset(
                   "assets/images/feedFuse.jpg",
                   fit: BoxFit.fill,
@@ -55,6 +58,8 @@ class MyApp extends StatelessWidget {
               nextScreen: FeedScreen(),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -1,4 +1,4 @@
-package com.example.rss_newsapp
+package com.bharat.feedfuse
 
 import io.flutter.embedding.android.FlutterActivity
 
